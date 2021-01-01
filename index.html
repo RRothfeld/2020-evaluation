@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>2020 Raoul Self-Evaluation</title>
+	<link rel="stylesheet" href="res/bulma.min.css">
+	<style>
+		img {
+			width: 14px;
+			margin-right: 6px;
+		}
+		img.static {
+			margin-left: 6px;
+			margin-right: 0px;
+		}
+
+		.rotate180 {
+			-webkit-transform: rotate(180deg);
+			-moz-transform: rotate(180deg);
+			-o-transform: rotate(180deg);
+			-ms-transform: rotate(180deg);
+			transform: rotate(180deg);
+		}
+
+		.card {
+			margin-bottom: 10px;
+		}
+
+		.card-header-title {
+			background: white;
+		}
+
+		.card-header {
+			cursor: pointer;
+		}
+
+		.performed {
+			font-weight: bold;
+		}
+
+		.performed.under {
+			color: gold;
+		}
+
+		.performed.over {
+			color: green;
+		}
+
+		.tag {
+			margin-right: 6px;
+			font-weight: normal;
+		}
+	</style>
+</head>
+<body>
+	<section class="section">
+		<div class="container">
+			<p class="title is-1"><b>2020</b> - Raoul Self-Evaluation</p>
+			<div class="columns">
+				<div class="column">
+					<p class="title is-3">Goals</p>
+				</div>
+				<div class="column" style="text-align: right;">
+					<a href="#" onclick="myRemoveForEach('card-content','is-hidden');myAddForEach('angle','rotate180');"><button class="button">Show all <img class="static" src="res/angle-arrow-down.png"></button></a>
+					<a href="#" onclick="myAddForEach('card-content','is-hidden');myRemoveForEach('angle','rotate180');"><button class="button">Hide all <img class="static rotate180" src="res/angle-arrow-down.png" ></button></a>
+				</div>
+			</div>
+				
+			<div class="cards" id="cards">
+				<!--
+				<div class="card">
+					<header class="card-header" onclick="myToggle('content1','is-hidden');myToggle('angle1','rotate180');">
+						<p class="card-header-title" style="background: linear-gradient(90deg, rgba(52,111,178,1) 50%, rgba(54,149,134,1) 50%, rgba(54,149,134,1) 72%, white 72%);">
+							<img src="res/star.svg"> Component
+						</p>
+						<div class="card-header-icon">
+							<span class="icon">
+								<img class="angle" id="angle1" src="res/angle-arrow-down.png">
+							</span>
+						</div>
+					</header>
+					<div class="card-content is-hidden" id="content1">
+						<div class="content">
+							<div class="columns">
+								<div class="column">Desired status: 50%</div>
+								<div class="column">Current status: 72%</div>
+								<div class="column performed over">Good progress.</div>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
+						</div>
+					</div>
+				</div>
+				-->
+			</div>
+		</div>
+	</section>
+	<script>
+		function myAddForEach(elementId, addClass) {
+			document.querySelectorAll('.'+elementId).forEach(element => {element.classList.add(addClass)});
+		}
+
+		function myRemoveForEach(elementId, addClass) {
+			document.querySelectorAll('.'+elementId).forEach(element => {element.classList.remove(addClass)});
+		}
+
+		function myToggle(elementId, addClass) {
+			document.getElementById(elementId).classList.toggle(addClass);
+		}
+
+		var colorReached = 'rgb(200, 200, 200)';
+		var colorGood = 'rgb(183, 199, 184)';
+		var textGood = "<div class=\"column performed over\">Good progress.</div>";
+		var colorBad = 'rgb(255, 245, 204)';
+		var textBad = "<div class=\"column performed under\">Progress below expectation.</div>";
+
+		var csv = "id	date	tag	goal	priority	reached	desired	description\n1	31/12/2020	Research	Finish and submit PhD thesis	1	95	99.99	Initial goal of thesis submission within the year 2020 has not been met.</p><p>However, (hopefully) last iteration of changes within third paper and compendium will be sent to Costas early January 2021, so that official submission might be possible within the same month. By now, the PhD thesis is not intended to represent my magnus opus but merely the closing or summarizing chapter of my work on UAM.\n2	31/12/2020	Social	Be a net-positive impact on society (e.g. through voluntary service)	0	95	35	Contact-Tracing-Team work for city of Unterschleißheim, voluntary tutoring of a migrant student, work as a BGU doctoral representative (incl. COVID-19 impact on doctoral students survey) \n3	31/12/2020	Social	In general, be an approachable and helpful colleague/lecturer	0	90	40	Providing feedback, being available and reachable, solving IT/administrative issues, answering student questions, etc.\n4	31/12/2020	Social	Aide TSE colleagues with German translations/explanations	0	80	60	Helped whenever possible, also in private matters (e.g. appointments or contracts)\n5	31/12/2020	Social	Be a net-positive impact on TSE's work climate	0	70	50	Office cleaning and organisation, shared office restructuring, welcoming of new TSE members, attempts of more social out-of-work activities (e.g. hiking)\n6	31/12/2020	Teaching	Aquire basic teaching proficiency certificate	0	65	99.99	Two out of five required courses completed with a third course being booked for January 2021. Trying to complete the remeining two courses within SoSe 2021.\n7	31/12/2020	Personal	Provide solid foundation for next career progression	1	65	70	Obtain PhD and establish connections/networks to other research institutes and German (public) companies.</p><p>Aiming towards future positions such as University professor, University of Applied Sciences professor, public company employment, authority employement, self-employment.\n8	31/12/2020	Teaching	Provide engaging, high-quality transportation courses	0	60	45	SoSe 2020: Emerging Mobility was well received, Transportation Systems in Germany neutral in its quality, MATSim course well received with extremely low attendance though</p><p>WiSe 20/21: updated concept for Interculutral Aspects (poster and loose templates) followed by Transportation Systems (full presentation and IEEE templates), Data Science Crash Course very well received (course needs polishing though), Project Seminar involvement\n9	31/12/2020	Teaching	Consolidate and streamline teaching administration	0	55	50	Be TSE's main contact person for all teaching matters. Reduce Costas' workload in that regard.\n10	31/12/2020	Teaching	Supervise two MSc theses per semester	0	50	99.99	While we are in the fortunate position of having sufficient SWS credits to cover all our (Costas. Tao, myself) requirements and do not need ample theses, I want to supervise a certain number of thesis per semester.</p><p>While this number is not to be understood as an absolute requirement for me, I wish to include thesis supervision as major part of my teaching duties at TSE.\n16	31/12/2020	Personal	Improve time-management/work efficiency	0	40	80	Pareto principle, being able to quickly focus, reduce time-waste (e.g. before/after meetings)\n11	31/12/2020	Teaching	Establish TSE as a chair with outstanding course offers within TS	0	25	30	TSE's core courses seem to be Transport Economics, DCA, and might data science in the future. I would like to aide in TSE being seen as a chair that provides high-quality teaching for specialists.\n12	31/12/2020	Projects	Aquire at least one new research project	0	20	60	Mini project with Systematica, hand-off project with Bauhaus Luftfahrt, and EIT project with ETH Zurich regarding COVID-19 have all not materialised.</p><p>Helped with Panamera, MOPIK/IGSSE, and M Cube.\n13	31/12/2020	Research	Gain proficiency in modelling tools besides MATSim (e.g. VISUM, VISSIM, Aimsun, Simmobility, SUMO)	1	15	50	No new modelling capabilities have been aquired within 2020. I would like to broaden my set of skills with regards to modelling.\n14	31/12/2020	Teaching	Ensure high relevancy of MSc theses for own/TSE research	1	0	50	In my understanding, quality is more important than quantitiy of supervised theses. So far, I have failed to recruit able students to work on topics that directly further my own research or the research of TSE colleagues.\n15	31/12/2020	Research	Conduct and publish research on agent-based transport modelling	1	0	50	UAM travel times paper rejected twice.</p><p>No new work on non-UAM topics.";
+
+		var lines = csv.split("\n");
+		var i = 0;
+		while(typeof lines[0] !== "undefined"){
+			if (i == 0)
+				lines.shift();
+
+		    var line = lines.shift();
+		    var split = line.split('\t');
+		    var isGood = split[6] < split[5];
+		    var card = "<div class=\"card\"><header class=\"card-header\" onclick=\"myToggle(\'content"+i+"\',\'is-hidden\');myToggle(\'angle"+i+"\',\'rotate180\');\"><p class=\"card-header-title\" style=\"background: linear-gradient(90deg, "+colorReached+" "+(isGood ? split[6] : split[5])+"%,"+(isGood ? colorGood : colorBad)+" "+(isGood ? split[6] : split[5])+"%,"+(isGood ? colorGood : colorBad)+" "+(isGood ? split[5] : split[6])+"%, white "+(isGood ? split[5] : split[6])+"%);\">"+((split[4] == 0) ? "" : "<span class=\"tag is-warning\">Priority</span> ")+"<span class='tag is-light'>"+split[2]+"</span>"+split[3]+"</p><div class=\"card-header-icon\"><span class=\"icon\"><img class=\"angle\" id=\"angle"+i+"\" src=\"res/angle-arrow-down.png\"></span></div></header><div class=\"card-content is-hidden\" id=\"content"+i+"\"><div class=\"content\"><div class=\"columns\">"+(isGood ? textGood : textBad)+"<div class=\"column\">Desired status: "+split[6]+"%</div><div class=\"column\">Current status: "+split[5]+"%</div></div><p>"+split[7]+"</p></div></div></div>";
+		    document.getElementById('cards').insertAdjacentHTML('beforeend',card);
+		    i++;
+		}
+	</script>
+</body>
+</html>
